@@ -1,0 +1,24 @@
+﻿<Window x:Class="Homework_10.SelectUser"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Homework_10"
+        mc:Ignorable="d"
+        Title="SelectUser" Height="150" Width="300"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70*"/>
+            <RowDefinition Height="30*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <RadioButton x:Name="rb_Consultant" Content="Консультант" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="0" IsChecked="True"/>
+        <RadioButton x:Name="rb_Manager" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Content="Менеджер"/>
+        <Button Content="Войти" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Center" Grid.ColumnSpan="2" Margin="75,0,0,0" Width="150" Click="Button_Click"/>
+
+    </Grid>
+</Window>

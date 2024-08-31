@@ -1,0 +1,38 @@
+﻿<Window x:Class="Homework_10.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Homework_10"
+        mc:Ignorable="d"        
+        Title="Bank A: Clients" Height="450" Width="800" Closed="Window_Closed"
+        WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <local:PassportConverter x:Key="PassportConverter"/>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="90*"/>
+        </Grid.RowDefinitions>
+        <Button x:Name="button_Add" Content="Добавить" HorizontalAlignment="Left" Margin="10,13,0,0" VerticalAlignment="Top" Click="button_Add_Click" />
+        <Button x:Name="button_Del" Content="Удалить" HorizontalAlignment="Left" Margin="72,13,0,0" VerticalAlignment="Top"  Width="66" Click="button_Del_Click"/>
+        <ListView x:Name="lv_ClientsBase" SelectionMode="Extended" Grid.Row="1" ItemsSource="{Binding Clients}" MouseDoubleClick="lv_ClientsBase_MouseDoubleClick" >
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Фамилия" DisplayMemberBinding="{Binding FirstName}" />
+                    <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding LastName}" />
+                    <GridViewColumn Header="Отчество" DisplayMemberBinding="{Binding Patronymic}" />
+                    <GridViewColumn Header="Номер телефона" DisplayMemberBinding="{Binding PhoneNumber}" />
+                    <GridViewColumn Header="Паспорт">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Passport, Converter={StaticResource PassportConverter}}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>
